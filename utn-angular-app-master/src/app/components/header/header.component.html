@@ -1,0 +1,21 @@
+<!-- HEADER -->
+ <header>
+<nav class="navbar navbar-expand-lg bg-light shadow-sm px-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" routerLink="/">TP FINAL</a>
+
+    <div class="navbar-nav ms-auto">
+      <li><a class="nav-link px-3" routerLink="/">Home</a></li>
+      @if(isLoggingIn) {
+      <li><a class="nav-link px-3" routerLink="/characters">Characters</a></li>
+      }
+      <li><a class="nav-link px-3" routerLink="/contact">Contact</a></li>
+      @if(isLoggingIn) {
+      <button class="nav-link px-3 btn btn-secondary" (click)="isLoggingIn = false">Cerrar sesión</button>
+      } @else {
+      <button class="nav-link px-3 btn btn-secondary"  (click)="isLoggingIn = true">Iniciar sesión</button>
+      }
+    </div>
+  </div>
+</nav>
+</header>

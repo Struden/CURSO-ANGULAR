@@ -1,0 +1,37 @@
+<div class="container mt-5" style="max-width: 600px;">
+  <h2>Contacto</h2>
+  <form [formGroup]="form" (ngSubmit)="enviar()">
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input formControlName="nombre" class="form-control" />
+      @if(form.get('nombre')?.touched && form.get('nombre')?.invalid){
+      <div class="text-danger">
+        Nombre requerido (mín. 3 caracteres)
+      </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input formControlName="email" class="form-control" />
+      @if(form.get('email')?.touched && form.get('email')?.invalid){
+      <div class="text-danger">
+        Ingresá un email válido
+      </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label>Mensaje</label>
+      <textarea formControlName="mensaje" rows="4" class="form-control"></textarea>
+      @if(form.get('mensaje')?.touched && form.get('mensaje')?.invalid){
+      <div class="text-danger">
+        Mensaje requerido (mín. 10 caracteres)
+      </div>
+      }  
+    </div>
+  
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
