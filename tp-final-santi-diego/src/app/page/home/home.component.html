@@ -1,0 +1,25 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @for(p of productos; track p.id){
+    <div class="col">
+        <div class="card h-100 d-flex flex-column">
+          <img [src]="p.images[0]" class="card-img-top" alt="{{ p.title }}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ p.title }}</h5>
+            <p class="card-text">{{ p.description }}</p>
+            <p class="fw-bold">$ {{ p.price }}</p>
+            <a
+            [routerLink]="['/producto']"
+            [state]="{ producto: p }"
+            class="btn btn-dark mt-auto">
+            Ver detalle
+          </a>
+          </div>
+        </div>
+      </div>
+    }
+      
+  
+  <div *ngIf="cargando" class="text-center my-4 w-100">
+    <div class="spinner-border text-primary text-center " role="status"></div>
+  </div>
+  
